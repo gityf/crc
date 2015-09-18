@@ -1,0 +1,15 @@
+#CFLAGS = -DDEBUG_LOG -D_DEBUG
+#CFLAGS = -DDEBUG_LOG
+CFLAGS = -DLINUX
+
+CC=gcc -std=c++11 -g -O3 $(CFLAGS)
+CC=gcc -std=c++11 -g $(CFLAGS)
+CCC=gcc -std=c++11 -g $(CFLAGS)
+SHARED_FLAG = -fPIC -shared
+
+%.o : %.cpp
+	$(CC) $(INC) -c $< -o $@
+%.o : %.c
+	$(CC) $(INC) -c $< -o $@
+%.o : %.cc
+	$(CC) $(INC) -c $< -o $@
