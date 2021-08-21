@@ -1,8 +1,7 @@
 /*
-** Copyright (C) 2018 Wang Yaofu
-** All rights reserved.
+** The crc unit test is licensed under the Apache License, Version 2.0, and a copy of the license is included in this file.
 **
-**Author:Wang Yaofu voipman@qq.com
+**Author:Wang Yaofu 2018 voipman@qq.com
 **Description: The unit test file of crc.
 */
 
