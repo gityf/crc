@@ -74,5 +74,5 @@ uint32_t crc32(const char* s, int len)
         crc32val = crc32_tab[(crc32val ^ s[i]) & 0xFF] ^ ((crc32val >> 8) & 0x00FFFFFF);
     }
 
-    return labs(crc32val ^ 0xFFFFFFFF);
+    return crc32val ^ 0xFFFFFFFF;
 }
