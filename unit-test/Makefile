@@ -35,7 +35,7 @@ $(PROJECT) : $(OBJS) $(MODULE)
 	@echo "+--------------------------------------------+"
 
 clean:
-	rm -rf *.o *.a *_unittest
+	rm -rf *.o *.a *_unittest ../crc/*.o
 
 install :
 	test -d ../test || mkdir -p ../test
