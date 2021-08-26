@@ -7,7 +7,7 @@
 **  Polynomials are represented in LSB-first form
 **  following parameters:
 **    Width                      : 32 bit
-**    Poly                       : 0xedb88320 (That is actually x^8 + x^5 + x^4 + 1)
+**    Poly                       : 0xedb88320
 **    Output for "123456789"     : 0xCBF43926
 */
 #include <stdlib.h>
