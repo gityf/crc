@@ -1,5 +1,5 @@
 /*
-** The crc32 is licensed under the Apache License, Version 2.0, and a copy of the license is included in this file.
+** The crc is licensed under the Apache License, Version 2.0, and a copy of the license is included in this file.
 **
 **Author:Wang Yaofu voipman@qq.com
 **Description: The source file to calc crc poly.
