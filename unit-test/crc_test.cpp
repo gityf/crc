@@ -12,6 +12,7 @@
 #include "../crc/crc64.h"
 #include "../crc/crc_poly.h"
 #include <iostream>
+#include <string.h>
 
 TEST(CRC8Test, BasicTest)
 {
