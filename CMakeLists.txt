@@ -4,7 +4,7 @@ else()
   set(CRC_LIBRARY 1)
 endif()
 
-project(CRC)
+project(crc)
 
 if(TARGET ${PROJECT_NAME})
   message("The ${PROJECT_NAME} arledy included in main Project")
@@ -25,5 +25,4 @@ file(GLOB SOURCE_CPP
 )
 
 add_library(${PROJECT_NAME} ${SOURCE_CPP})
-
-
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_LIST_DIR})
