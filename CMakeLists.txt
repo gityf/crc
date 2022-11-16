@@ -2,7 +2,6 @@ if(DEFINED CRC_LIBRARY)
   return()
 else()
   set(CRC_LIBRARY 1)
-  add_definitions(-DCRC_LIBRARY)
 endif()
 
 project(CRC)
@@ -20,7 +19,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 option(BUILD_SHARED_LIBS "Enable or disable shared libraries" OFF)
 
 file(GLOB SOURCE_CPP
- 	"crc/*.h"
+    "crc/*.h"
     "crc/*.cpp"
     "crc/*.c"
 )
