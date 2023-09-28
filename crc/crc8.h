@@ -1,17 +1,17 @@
 #ifndef _CRC_CRC8_H
 #define _CRC_CRC8_H
 
-#include <stdint.h>
-
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus  */
 
+#include <stdint.h>
+
 // LSB-first
-uint8_t crc8_lsb(const char *buf, int len);
+uint8_t crc8_lsb(const unsigned char *buf, size_t len);
 
 // MSB-first
-uint8_t crc8_msb(const char *buf, int len);
+uint8_t crc8_msb(const unsigned char *buf, size_t len);
 
 #ifdef __cplusplus
 }

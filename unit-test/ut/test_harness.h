@@ -48,7 +48,7 @@ class Tester {
         fname_, line_, ss_.str().c_str());
       fprintf(stderr, "\033[0m");
       errCount++;
-      //exit(1);
+      exit(1);
     }
   }
 
@@ -64,7 +64,7 @@ class Tester {
   template <class X, class Y>                           \
   Tester& name(const X& x, const Y& y) {                \
     if (! (x op y)) {                                   \
-      ss_ << " failed: Expect:" << x << (" " #op " ") << "Actual:" << y;    \
+      ss_ << " failed: Expect:" << std::hex << uint64_t {x} << (" " #op " ") << "Actual:" << std::hex << uint64_t {y};    \
       ok_ = false;                                                   \
     }                                                   \
     return *this;                                       \

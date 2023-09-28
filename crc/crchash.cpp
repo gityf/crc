@@ -12,27 +12,27 @@
 namespace common {
     uint16_t Hash16(const std::string& key)
     {
-        return crc16(key.c_str(), key.size());
+        return crc16(reinterpret_cast<const unsigned char *>(key.c_str()), key.size());
     }
-    uint16_t Hash16(const char* cpKey, const int iKeyLen)
+    uint16_t Hash16(const unsigned char *cpKey, const size_t iKeyLen)
     {
         return crc16(cpKey, iKeyLen);
     }
 
     uint32_t Hash32(const std::string& key)
     {
-        return crc32(key.c_str(), key.size());
+        return crc32(reinterpret_cast<const unsigned char *>(key.c_str()), key.size());
     }
-    uint32_t Hash32(const char* cpKey, const int iKeyLen)
+    uint32_t Hash32(const unsigned char *cpKey, const size_t iKeyLen)
     {
         return crc32(cpKey, iKeyLen);
     }
 
     uint64_t Hash64(const std::string& key)
     {
-        return crc64(key.c_str(), key.size());
+        return crc64(reinterpret_cast<const unsigned char *>(key.c_str()), key.size());
     }
-    uint64_t Hash64(const char* cpKey, const int iKeyLen)
+    uint64_t Hash64(const unsigned char *cpKey, size_t iKeyLen)
     {
         return crc64(cpKey, iKeyLen);
     }
