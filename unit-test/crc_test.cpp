@@ -6,13 +6,12 @@
 */
 
 #include "ut/test_harness.h"
-#include "../crc/crc8.h"
-#include "../crc/crc16.h"
-#include "../crc/crc32.h"
-#include "../crc/crc64.h"
-#include "../crc/crc_poly.h"
-#include <iostream>
-#include <string.h>
+#include "crc/crc8.h"
+#include "crc/crc16.h"
+#include "crc/crc32.h"
+#include "crc/crc64.h"
+#include "crc/crc_poly.h"
+#include <cstring>
 
 TEST(CRC8Test, BasicTest)
 {
