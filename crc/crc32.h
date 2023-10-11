@@ -5,6 +5,7 @@
 extern "C" {
 #endif /* __cplusplus  */
 
+#include <stddef.h>
 #include <stdint.h>
 
 uint32_t crc32(const unsigned char *s, size_t len);
