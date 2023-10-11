@@ -1,11 +1,11 @@
 #ifndef _CRC_CRC_POLY_H
 #define _CRC_CRC_POLY_H
 
-#include <stdint.h>
-
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus  */
+
+#include <stdint.h>
 
 // LSB-first
 uint8_t crc8_poly_lsb(uint8_t poly, uint8_t value);

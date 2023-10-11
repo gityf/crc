@@ -1,12 +1,9 @@
 #include "test_harness.h"
 
-#include <string>
-#include <string.h>
-#include <stdlib.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <sys/time.h>
 #include <vector>
+#include <string>
+#include <cstring>
+#include <ctime>
 
 namespace common {
     namespace test {
@@ -80,9 +77,15 @@ namespace common {
                 startMs_, endMs, endMs - startMs_);
         }
         long TestPerfomence::NowMs() {
-            struct timeval timeNow;
-            gettimeofday(&timeNow, NULL);
-            return (timeNow.tv_sec) * 1000 + timeNow.tv_usec / 1000;
+            timespec timeNow{};
+
+            if (timespec_get(&timeNow, TIME_UTC) != TIME_UTC)
+            {
+                fputs("timespec_get failed!", stderr);
+                return 0;
+            }
+
+            return static_cast<long>(timeNow.tv_sec * 1000 + timeNow.tv_nsec / 1000);
         }
 
     }

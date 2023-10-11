@@ -170,7 +170,7 @@ static const uint64_t crc64_tab[256] = {
     0x536fa08fdfd90e51ULL, 0x29b7d047efec8728ULL,
 };
 
-uint64_t crc64(const char *s, int l) {
+uint64_t crc64(const unsigned char *s, size_t l) {
     int j = 0;
     uint64_t crc = 0;
 
