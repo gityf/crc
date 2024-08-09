@@ -6,26 +6,30 @@
 */
 
 #include "ut/test_harness.h"
-#include "../crc/crc8.h"
-#include "../crc/crc16.h"
-#include "../crc/crc32.h"
-#include "../crc/crc64.h"
-#include "../crc/crc_poly.h"
-#include <iostream>
-#include <string.h>
+#include "crc/crc8.h"
+#include "crc/crc16.h"
+#include "crc/crc32.h"
+#include "crc/crc64.h"
+#include "crc/crc_poly.h"
+#include <cstring>
 
 TEST(CRC8Test, BasicTest)
 {
     const char* inData = "123456789";
     uint8_t expect = 0xa2;
-    EXPECT_EQ(crc8_msb(inData, 9), expect);
+    EXPECT_EQ(crc8_msb(reinterpret_cast<const unsigned char *>(inData), 9), expect);
 
     const char* data = "Hello World!!!";
     expect = 0x68;
-    EXPECT_EQ(crc8_msb(data, strlen(data)), expect);
+    EXPECT_EQ(crc8_msb(reinterpret_cast<const unsigned char *>(data), strlen(data)), expect);
 
     expect = 0x2c;
-    EXPECT_EQ(crc8_lsb(data, strlen(data)), expect);
+    EXPECT_EQ(crc8_lsb(reinterpret_cast<const unsigned char *>(data), strlen(data)), expect);
+
+    const uint8_t buffer[] = {0xb0, 0, 0, 0, 0, 0, 0};
+
+    expect = 0x1a;
+    EXPECT_EQ(crc8_lsb(buffer, sizeof(buffer)), expect);
 }
 
 TEST(CRC16Test, BasicTest)
@@ -33,7 +37,7 @@ TEST(CRC16Test, BasicTest)
     const char* inData = "123456789";
     uint16_t expect = 0x31C3;
 
-    EXPECT_EQ(crc16(inData, 9), expect);
+    EXPECT_EQ(crc16(reinterpret_cast<const unsigned char *>(inData), 9), expect);
 }
 
 TEST(CRC32Test, BasicTest)
@@ -41,7 +45,7 @@ TEST(CRC32Test, BasicTest)
     const char* inData = "123456789";
     uint32_t expect = 0xCBF43926;
 
-    EXPECT_EQ(crc32(inData, 9), expect);
+    EXPECT_EQ(crc32(reinterpret_cast<const unsigned char *>(inData), 9), expect);
 }
 
 TEST(CRC64Test, BasicTest)
@@ -49,7 +53,7 @@ TEST(CRC64Test, BasicTest)
     const char* inData = "123456789";
 
     uint64_t expect = 0xe9c6d914c4b8d9caL;
-    EXPECT_EQ(crc64(inData, 9), expect);
+    EXPECT_EQ(crc64(reinterpret_cast<const unsigned char *>(inData), 9), expect);
 }
 
 TEST(CRC8PolyTest, BasicTest)

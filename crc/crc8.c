@@ -87,7 +87,7 @@ static const uint8_t crc8tab_msb[256] = {
 };
 
 // LSB-first
-uint8_t crc8_lsb(const char *buf, int len) {
+uint8_t crc8_lsb(const unsigned char *buf, size_t len) {
     int counter;
     uint8_t crc = 0;
     for (counter = 0; counter < len; counter++)
@@ -96,7 +96,7 @@ uint8_t crc8_lsb(const char *buf, int len) {
 }
 
 // MSB-first
-uint8_t crc8_msb(const char *buf, int len) {
+uint8_t crc8_msb(const unsigned char *buf, size_t len) {
     int counter;
     uint8_t crc = 0;
     for (counter = 0; counter < len; counter++)
