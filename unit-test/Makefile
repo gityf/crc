@@ -1,5 +1,6 @@
 PROJECT = unittest
 
+CXX=gcc -g -std=c++11
 CC=gcc -g
 
 SHARED_FLAG = -fPIC -shared
@@ -42,7 +43,7 @@ install :
 	cp unittest ../test
 
 %.o : %.cpp
-	$(CC) $(INC) -c $< -o $@
+	$(CXX) $(INC) -c $< -o $@
 %.o : %.c
 	$(CC) $(INC) -c $< -o $@
 %.o : %.cc
